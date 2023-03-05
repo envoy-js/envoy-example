@@ -35,9 +35,6 @@ export function ExampleMessenger() {
 
 export function MessagesArea() {
     const {createRoom, rooms} = messenger.useChatServer()
-    useEffect(() => {
-        console.log(rooms)
-    }, [createRoom, rooms])
 
     return <main style={{width: '100vw', height: '100vh', marginLeft: 'auto', marginRight: 'auto'}}>
         <Container maxWidth={'md'}>
@@ -53,10 +50,6 @@ export function MessageEntry(props: { message: Message }) {
     const {me} = messenger.useChatServer()
     const {message} = props
     const isMine = useMemo(() => (message.author.username === me?.username), [message, me])
-
-    useEffect(() => {
-        console.log("Msgs", message.author.username, me?.username)
-    }, [me, message])
 
     return <Grid item xs={12} display={'flex'}
                  justifyContent={isMine ? 'right' : 'left'}>
@@ -87,10 +80,6 @@ export function MessageEntry(props: { message: Message }) {
 export function ExampleChat(props: { room: { id: string } }) {
     const {sendMessage, messages} = messenger.useChatroom(props.room.id)
     const [content, setContent] = useState("")
-
-    useEffect(() => {
-        console.log("Messages changed: ", messages)
-    }, [sendMessage, messages])
 
     return <Grid item xs={12}>
         <Paper sx={{width: '100%', padding: 2, maxHeight: '100vh', overflow: "scroll"}} variant="outlined">
