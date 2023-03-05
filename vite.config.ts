@@ -6,15 +6,4 @@ export default defineConfig({
     plugins: [
         react(),
     ],
-    optimizeDeps: {
-        esbuildOptions: {
-            plugins: [],
-        },
-    },
-    define: {global: {}},
-    resolve: {
-        alias: {
-            "xmlhttprequest-ssl": "./node_modules/engine.io-client/lib/xmlhttprequest.js"
-        }
-    }
 })
