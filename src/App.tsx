@@ -1,4 +1,3 @@
-import './App.css'
 import {ExampleMessenger} from "./components/messaging";
 
 
