@@ -1,6 +1,7 @@
-import {ChatServerProvider, Messenger} from "@envoy/react";
+// import {ChatServerProvider, Messenger} from "@envoy/react";
 
 import React from "react";
+import {ChatServerProvider, Messenger} from "../envoy";
 
 interface Message {
     room_id: string,
@@ -19,6 +20,7 @@ const messenger = new Messenger<Message, Room>(
 
 export function ExampleMessenger() {
     return <ChatServerProvider messenger={messenger}>
+        This is epic
         <ChatRooms/>
     </ChatServerProvider>
 }
